@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Alimentos</h1>
+<div class="table-container">
+    <table>
+        <tr>
+            <th>Selecionar</th>
+            <th>Nome</th>
+            <th>Localização</th>
+            <th>Observação</th>
+            <th>Ações</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+            <td><input type="checkbox" name="selected" value="{{ item['id'] }}"></td>
+            <td>{{ item['name'] }}</td>
+            <td>{{ item['location'] }}</td>
+            <td>{{ item['observation'] }}</td>
+            <td>
+                <form action="{{ url_for('delete_item', item_id=item['id']) }}" method="post">
+                    <button type="submit" class="button">Excluir</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="button-container">
+        <a href="{{ url_for('add_food_item') }}" class="button">Adicionar Alimento</a>
+    </div>
+</div>
+{% endblock %}
