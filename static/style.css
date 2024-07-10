@@ -1,0 +1,261 @@
+/* Definição global do estilo do corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.8), rgba(0, 123, 255, 0.5)), url('/static/background.png');
+    background-size: cover;
+    display: flex;
+}
+
+/* Estilo do cabeçalho */
+header {
+    color: #000000;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    width: calc(100% - 220px); /* Ajustar largura para considerar a sidebar */
+    margin-left: 220px; /* Ajustar margem para considerar a sidebar */
+}
+
+/* Estilo da imagem de logo */
+header img.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 70px; /* Ajustar o tamanho da logo */
+}
+
+/* Estilo da navegação dentro do cabeçalho */
+header nav {
+    margin-top: 1rem;
+}
+
+/* Estilo da lista de navegação */
+header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilo dos itens da lista de navegação */
+header nav ul li {
+    margin: 0 15px;
+}
+
+/* Estilo dos links de navegação */
+header nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* Estilo dos links de navegação quando o mouse passa por cima */
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo da seção principal */
+main {
+    padding: 2rem;
+    flex-grow: 1;
+    margin-left: 220px; /* Espaço para a sidebar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo dos títulos */
+h2 {
+    color: #000000f1;
+    text-align: center;
+    margin-bottom: 0.5rem; /* Ajustar margem inferior */
+    width: 100%; /* Ajustar largura para centralização */
+}
+
+/* Estilo dos título */
+h1 {
+    color: #000000f1;
+    text-align: center;
+    margin-bottom: 1rem; /* Ajustar margem inferior */
+    width: 100%; /* Ajustar largura para centralização */
+    margin-right: 180px;
+    margin-top: -20px;
+}
+
+/* Estilo da barra lateral */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background-color: rgba(51, 51, 51, 0.8);
+    color: #fff;
+    height: 110vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    border-radius: 1px; /* Bordas arredondadas na tabela */
+    overflow: hidden; /* Para aplicar borda arredondada corretamente */
+}
+
+/* Estilo dos títulos dentro da barra lateral */
+.sidebar h2 {
+    margin-bottom: 1px;
+    text-align: center;
+    margin-top: 60px; /* Ajustar a margem superior do título */
+}
+
+/* Estilo dos botões na barra lateral */
+.sidebar .button {
+    width: 150px;
+    display: block;
+    padding: 15px;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 0px;
+    font-size: 1rem;
+    overflow: hidden; /* Para aplicar borda arredondada corretamente */
+}
+
+/* Estilo dos botões na barra lateral quando o mouse passa por cima */
+.sidebar .button:hover {
+    background-color: #0056b3;
+}
+
+/* Contêiner para os botões na página principal */
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    text-align: left; /* Alinhar texto à esquerda */
+}
+
+/* Estilo do formulário de adição de itens */
+.add-item-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.80rem;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left; /* Alinhar texto à esquerda */
+}
+
+/* Estilo dos rótulos no formulário de adição de itens */
+.add-item-form label {
+    margin-bottom: 0.80rem;
+    font-weight: bold;
+    margin-right: 180px;
+}
+
+/* Estilo dos campos de entrada no formulário de adição de itens */
+.add-item-form input {
+    padding: 0.50rem 2rem;
+    width: 60%;
+    margin-bottom: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    margin-right: 200px;
+}
+
+/* Estilo dos botões no formulário de adição de itens */
+.add-item-form .button {
+    display: inline-block;
+    padding: 1rem 2rem; /* Aumentar o tamanho do botão */
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-right: 180px;
+    margin-top: -15px;
+    text-align: center; /* Centralizar o texto dos campos de entrada */
+}
+
+
+/* Estilo dos botões no formulário de adição de itens quando o mouse passa por cima */
+.add-item-form .button:hover {
+    background-color: #0056b3;
+    text-align: center; /* Centralizar o texto dos campos de entrada */
+}
+
+/* Contêiner para as tabelas */
+.table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinhar à esquerda */
+    margin-top: 0.5rem; /* Ajustar margem superior */
+    width: 100%; /* Ajustar largura do contêiner da tabela */
+    border-radius: 20px;
+}
+
+/* Estilo das tabelas */
+table {
+    width: 100%; /* Aumentar a largura da tabela */
+    border-collapse: collapse;
+    margin-bottom: 10rem;
+    background-color: rgba(192, 192, 192, 0.8); /* Fundo cinza semi-transparente */
+    margin-right: 180px;
+    border-radius: 20px; /* Bordas arredondadas na tabela */
+    overflow: hidden; /* Para aplicar borda arredondada corretamente */
+    border: 1px solid #ddd;
+
+}
+
+/* Estilo para as células da tabela */
+table th, table td {
+    padding: 0.55rem;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* Estilo para o cabeçalho da tabela */
+th {
+    background-color: rgba(128, 128, 128, 0.8); /* Fundo cinza mais escuro semi-transparente */
+    text-align: center;
+}
+
+/* Estilo das células de dados das tabelas */
+td {
+    text-align: center;
+}
+
+/* Estilo das linhas das tabelas quando marcadas como feitas */
+tr.done td {
+    text-decoration: line-through;
+    color: #9e9b9b;
+}
+
+/* Estilo geral dos botões */
+.button {
+    display: inline-block;
+    padding: 1rem 2rem; /* Aumentar o tamanho do botão */
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 0.5rem;
+    margin: center;
+}
+
+/* Estilo geral dos botões quando o mouse passa por cima */
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Contêiner para os botões */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: -140px;
+    margin-right: 180px;
+}

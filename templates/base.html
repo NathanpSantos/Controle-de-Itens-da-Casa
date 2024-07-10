@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Controle de Itens da Casa</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Locais da Casa</a></li>
+                <li><a href="{{ url_for('cleaning_products') }}">Produtos de Limpeza</a></li>
+                <li><a href="{{ url_for('food_items') }}">Alimentos</a></li>
+            </ul>
+        </nav>
+    <header>
+    <div class="sidebar">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+        <h2>Locais da Casa</h2>
+        <a href="{{ url_for('room', room_id=1) }}" class="button">Sala</a>
+        <a href="{{ url_for('room', room_id=2) }}" class="button">Quarto 1</a>
+        <a href="{{ url_for('room', room_id=3) }}" class="button">Quarto 2</a>
+        <a href="{{ url_for('room', room_id=4) }}" class="button">Banheiro 1</a>
+        <a href="{{ url_for('room', room_id=5) }}" class="button">Banheiro 2</a>
+        <a href="{{ url_for('room', room_id=6) }}" class="button">Cozinha</a>
+        <a href="{{ url_for('room', room_id=7) }}" class="button">Quintal</a>
+        <a href="{{ url_for('room', room_id=8) }}" class="button">Garagem</a>
+        <a href="{{ url_for('room', room_id=9) }}" class="button">Lavabo</a>
+        <a href="{{ url_for('add_location') }}" class="button">Adicionar Local</a>
+    </div>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

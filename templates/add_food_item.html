@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Adicionar Alimento</h2>
+<form method="post">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" name="name" required>
+    <label for="location">Localização:</label>
+    <input type="text" id="location" name="location" required>
+    <label for="observation">Observação:</label>
+    <input type="text" id="observation" name="observation">
+    <button type="submit" class="button">Adicionar Alimento</button>
+</form>
+{% endblock %}

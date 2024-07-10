@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Produtos de Limpeza</h1>
+<div class="table-container">
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Observação</th>
+            <th>Ações</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ product['name'] }}</td>
+            <td>{{ product['observation'] }}</td>
+            <td>
+                <form action="{{ url_for('delete_cleaning_product', product_id=product['id']) }}" method="post">
+                    <button type="submit" class="button">Excluir</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="button-container">
+        <a href="{{ url_for('add_cleaning_product') }}" class="button">Adicionar Produto de Limpeza</a>
+    </div>
+</div>
+{% endblock %}
