@@ -2,24 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Produto de Limpeza</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <header>
-        <!-- Header content -->
+        <h1>Controle de Itens da Casa</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Locais da Casa</a></li>
+                <li><a href="{{ url_for('cleaning_products') }}">Produtos de Limpeza</a></li>
+                <li><a href="{{ url_for('food_items') }}">Alimentos</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
-        <h1>Editar Produto de Limpeza</h1>
-        <form method="POST" action="">
+        <h2>Editar Produto de Limpeza</h2>
+        <form method="post">
             {{ form.hidden_tag() }}
             <div>
                 {{ form.name.label }}<br>
-                {{ form.name(size=32) }}
+                {{ form.name(size=32) }}<br>
+                {% for error in form.name.errors %}
+                    <span style="color: red;">[{{ error }}]</span><br>
+                {% endfor %}
             </div>
             <div>
                 {{ form.observation.label }}<br>
-                {{ form.observation(size=32) }}
+                {{ form.observation(size=32) }}<br>
             </div>
             <div>
                 {{ form.submit() }}
