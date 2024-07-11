@@ -7,9 +7,12 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///inventory.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///inventory.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'supersecretkey'
+
 db = SQLAlchemy(app)
+DATABASE = 'inventory.db'
 
 # Modelo
 class CleaningProduct(db.Model):
