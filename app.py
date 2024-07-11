@@ -113,22 +113,6 @@ def add_cleaning_product():
         return redirect(url_for('cleaning_products'))
     return render_template('add_cleaning_product.html')
 
-@app.route('/edit_cleaning_product/<int:product_id>', methods=['GET', 'POST'])
-def edit_cleaning_product(product_id):
-    product = CleaningProduct.query.get_or_404(product_id)
-    form = EditCleaningProductForm()
-
-    if form.validate_on_submit():
-        product.name = form.name.data
-        product.observation = form.observation.data
-        db.session.commit()
-        flash('Produto atualizado com sucesso!', 'success')
-        return redirect(url_for('cleaning_products'))
-
-    form.name.data = product.name
-    form.observation.data = product.observation
-    return render_template('edit_cleaning_product.html', form=form)
-
 @app.route('/food_items')
 def food_items():
     conn = get_db_connection()
