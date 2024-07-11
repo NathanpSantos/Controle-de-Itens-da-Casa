@@ -13,15 +13,18 @@ db = SQLAlchemy(app)
 
 # Modelo
 class CleaningProduct(db.Model):
+    __tablename__ = 'cleaning_products'  # Garanta que o nome da tabela está correto
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
     observation = db.Column(db.String(200), nullable=True)
+
 
 # Formulário de Edição
 class EditCleaningProductForm(FlaskForm):
     name = StringField('Nome', validators=[DataRequired()])
     observation = StringField('Observação')
     submit = SubmitField('Salvar')
+
 
 def get_db_connection():
     conn = sqlite3.connect('inventory.db')
