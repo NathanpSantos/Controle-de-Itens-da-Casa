@@ -5,6 +5,8 @@ import os
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
+import logging
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///inventory.db'
@@ -13,6 +15,9 @@ app.config['SECRET_KEY'] = 'supersecretkey'
 
 db = SQLAlchemy(app)
 DATABASE = 'inventory.db'
+
+# Configuração básica de logging
+logging.basicConfig(level=logging.DEBUG)
 
 # Modelo
 class CleaningProduct(db.Model):
