@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Produto de Limpeza</title>
+</head>
+<body>
+    <header>
+        <!-- Header content -->
+    </header>
+    <main>
+        <h1>Editar Produto de Limpeza</h1>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <div>
+                {{ form.name.label }}<br>
+                {{ form.name(size=32) }}
+            </div>
+            <div>
+                {{ form.observation.label }}<br>
+                {{ form.observation(size=32) }}
+            </div>
+            <div>
+                {{ form.submit() }}
+            </div>
+        </form>
+    </main>
+</body>
+</html>

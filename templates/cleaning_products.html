@@ -17,6 +17,7 @@
             <td>{{ product['observation'] }}</td>
             <td>
                 <form action="{{ url_for('delete_cleaning_product', product_id=product['id']) }}" method="post">
+                    <a href="{{ url_for('edit_cleaning_product', product_id=product.id) }}" class="button">Editar</a>
                     <button type="submit" class="button">Excluir</button>
                 </form>
             </td>

@@ -1,10 +1,27 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 import sqlite3
+from flask_sqlalchemy import SQLAlchemy
 import os
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired
 
 app = Flask(__name__)
 
+db = SQLAlchemy(app)
 DATABASE = 'inventory.db'
+
+# Modelo
+class CleaningProduct(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), nullable=False)
+    observation = db.Column(db.String(200), nullable=True)
+
+# Formulário de Edição
+class EditCleaningProductForm(FlaskForm):
+    name = StringField('Nome', validators=[DataRequired()])
+    observation = StringField('Observação')
+    submit = SubmitField('Salvar')
 
 def get_db_connection():
     conn = sqlite3.connect(DATABASE)
@@ -17,6 +34,22 @@ def index():
     rooms = conn.execute('SELECT * FROM rooms').fetchall()
     conn.close()
     return render_template('index.html', rooms=rooms)
+
+@app.route('/edit_cleaning_product/<int:product_id>', methods=['GET', 'POST'])
+def edit_cleaning_product(product_id):
+    product = CleaningProduct.query.get_or_404(product_id)
+    form = EditCleaningProductForm()
+
+    if form.validate_on_submit():
+        product.name = form.name.data
+        product.observation = form.observation.data
+        db.session.commit()
+        flash('Produto atualizado com sucesso!', 'success')
+        return redirect(url_for('cleaning_products'))
+
+    form.name.data = product.name
+    form.observation.data = product.observation
+    return render_template('edit_cleaning_product.html', form=form)
 
 @app.route('/room/<int:room_id>')
 def room(room_id):
