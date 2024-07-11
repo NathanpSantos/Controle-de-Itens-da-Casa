@@ -6,35 +6,22 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <header>
-        <h1>Controle de Itens da Casa</h1>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('index') }}">Locais da Casa</a></li>
-                <li><a href="{{ url_for('cleaning_products') }}">Produtos de Limpeza</a></li>
-                <li><a href="{{ url_for('food_items') }}">Alimentos</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h2>Editar Produto de Limpeza</h2>
-        <form method="post">
+    <div class="container">
+        <h1>Editar Produto de Limpeza</h1>
+        <form method="POST" action="{{ url_for('edit_cleaning_product', product_id=product.id) }}">
             {{ form.hidden_tag() }}
             <div>
-                {{ form.name.label }}<br>
-                {{ form.name(size=32) }}<br>
-                {% for error in form.name.errors %}
-                    <span style="color: red;">[{{ error }}]</span><br>
-                {% endfor %}
+                {{ form.name.label }}
+                {{ form.name(size=32) }}
             </div>
             <div>
-                {{ form.observation.label }}<br>
-                {{ form.observation(size=32) }}<br>
+                {{ form.observation.label }}
+                {{ form.observation(size=64) }}
             </div>
             <div>
-                {{ form.submit() }}
+                {{ form.submit(class="button") }}
             </div>
         </form>
-    </main>
+    </div>
 </body>
 </html>

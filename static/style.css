@@ -200,7 +200,7 @@ h1 {
 
 /* Estilo das tabelas */
 table {
-    width: 100%; /* Aumentar a largura da tabela */
+    width: 90%; /* Ajuste a largura conforme necessário */
     border-collapse: collapse;
     margin-bottom: 10rem;
     background-color: rgba(192, 192, 192, 0.8); /* Fundo cinza semi-transparente */
