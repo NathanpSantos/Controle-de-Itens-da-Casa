@@ -181,7 +181,6 @@ h1 {
     text-align: center; /* Centralizar o texto dos campos de entrada */
 }
 
-
 /* Estilo dos botões no formulário de adição de itens quando o mouse passa por cima */
 .add-item-form .button:hover {
     background-color: #0056b3;
@@ -208,7 +207,6 @@ table {
     border-radius: 20px; /* Bordas arredondadas na tabela */
     overflow: hidden; /* Para aplicar borda arredondada corretamente */
     border: 1px solid #ddd;
-
 }
 
 /* Estilo para as células da tabela */
@@ -259,6 +257,19 @@ tr.done td {
     justify-content: center;
     margin-top: -140px;
     margin-right: 180px;
+}
+
+/* Estilo para os botões de ação (editar e excluir) na tabela */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espaçamento entre os botões */
+}
+
+/* Estilo dos botões de ação para garantir que fiquem alinhados e consistentes */
+.action-buttons .button {
+    padding: 0.5rem 1rem; /* Ajuste o padding conforme necessário */
+    font-size: 0.9rem; /* Ajuste o tamanho da fonte conforme necessário */
 }
 
 /* Adições para responsividade */
