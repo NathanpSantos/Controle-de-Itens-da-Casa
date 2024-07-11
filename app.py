@@ -48,19 +48,27 @@ def index():
 
 @app.route('/edit_cleaning_product/<int:product_id>', methods=['GET', 'POST'])
 def edit_cleaning_product(product_id):
-    product = CleaningProduct.query.get_or_404(product_id)
-    form = EditCleaningProductForm()
+    try:
+        logging.debug("Entrou na função edit_cleaning_product")
+        product = CleaningProduct.query.get_or_404(product_id)
+        logging.debug(f"Produto encontrado: {product.name}")
 
-    if form.validate_on_submit():
-        product.name = form.name.data
-        product.observation = form.observation.data
-        db.session.commit()
-        flash('Produto atualizado com sucesso!', 'success')
-        return redirect(url_for('cleaning_products'))
+        form = EditCleaningProductForm()
 
-    form.name.data = product.name
-    form.observation.data = product.observation
-    return render_template('edit_cleaning_product.html', form=form)
+        if form.validate_on_submit():
+            logging.debug("Formulário validado com sucesso")
+            product.name = form.name.data
+            product.observation = form.observation.data
+            db.session.commit()
+            flash('Produto atualizado com sucesso!', 'success')
+            return redirect(url_for('cleaning_products'))
+
+        form.name.data = product.name
+        form.observation.data = product.observation
+        return render_template('edit_cleaning_product.html', form=form, product=product)
+    except Exception as e:
+        logging.error(f"Erro ao editar produto de limpeza: {e}")
+        return "Erro interno do servidor", 500
 
 @app.route('/room/<int:room_id>')
 def room(room_id):
