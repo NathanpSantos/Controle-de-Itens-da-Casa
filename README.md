@@ -1,6 +1,35 @@
-# Controle de Itens da Casa.python!!
+# 🏠 Controle de Itens da Casa
 
-Esse projeto é um sistema de controle de itens domésticos, onde você pode visualizar todos os locais da sua casa e os itens que estão neles. Ele mostra as informações detalhadas de cada item, sua situação atual e o que precisa ser feito. 
+Sistema web desenvolvido para auxiliar na organização e controle de itens domésticos,
+permitindo visualizar os ambientes da casa e os itens armazenados em cada local.
 
-Além disso, inclui uma tabela de produtos de limpeza, onde é possível ver todos os itens de limpeza e suas respectivas utilizações, e uma tabela de alimentos que mostra onde cada alimento está armazenado. 
-Um controle fácil e prático para donos e donas de casa que desejam organizar sua casa na palma da mão.
+O projeto foi pensado para facilitar o dia a dia de quem deseja manter a casa organizada,
+com informações claras sobre a situação dos itens e ações necessárias.
+
+---
+
+## 🚀 Funcionalidades
+- Visualização dos ambientes da casa (cozinha, banheiro, lavanderia, etc.)
+- Controle de itens por local
+- Consulta de informações detalhadas de cada item
+- Indicação da situação atual e do que precisa ser feito
+- Tabela de produtos de limpeza com suas respectivas utilizações
+- Tabela de alimentos com indicação do local de armazenamento
+- Interface simples, prática e intuitiva
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+- Python
+- Flask
+- SQLite
+- HTML5
+- CSS3
+- JavaScript
+
+---
+
+## ▶️ Como executar o projeto localmente
+```bash
+pip install -r requirements.txt
+python app.py
